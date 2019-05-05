@@ -1,0 +1,44 @@
+<!--index.wxml-->
+<import src="../common/foot.wxml" />
+<view class="container">
+  <view class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}的消费记录</text>
+  </view>
+  <view>
+    <modal title="新建账目" hidden="{{modalHidden1}}" confirm-text="确定" cancel-text="取消" bindconfirm="modalBindaconfirm1" bindcancel="modalBindcancel1">
+      <input name='title' bindblur="setTitle" placeholder="请为账户命名" value="{{temptitle}}">
+      </input>
+    </modal>
+   
+    <modal title="账目重命名" hidden="{{modalHidden2}}" confirm-text="确定" cancel-text="取消" bindconfirm="modalBindaconfirm2" bindcancel="modalBindcancel2">
+      <input name='title' bindblur="setTitle" placeholder="请为账户命名" value="{{temptitle}}">
+      </input>
+    </modal>
+  </view>
+  
+  <view class="page-body">
+    <view class="index-bd">
+      <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{list}}" wx:key="id">
+        <view class="content">
+          <navigator url="../handbook/index/index?index={{index}}" class="navigator">
+            <view class="navigator-text">{{item.title}}</view>
+            <view class="navigator-arrow"></view>
+          </navigator>
+        </view>
+        <view class="rename" catchtap="showModal2" data-index="{{index}}">重命名</view>
+        <view class="del" catchtap="del" data-index="{{index}}">删除</view>
+      </view>
+    </view>
+    <view class="button2" bindtap="showModal1">
+      <!-- <image class="float-action2" src="../common/icon/add.png"></image> -->
+      <button class="weui_btn"  type="primary" formType="submit"  >添加</button>
+    </view>
+    <view class="button1">
+       <navigator url="../settings/settings" hover-class="navigator-hover"> 
+      <button class="weui-btn" url="../settings/settings"formType="reset" >设置</button>
+      </navigator> 
+    </view>
+  </view>
+  <template is="foot" />
+</view>
