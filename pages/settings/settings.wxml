@@ -28,6 +28,7 @@
     <view class="button1" bindtap="showModal">
       <button class="weui-btn"  type="primary" formType="submit">添加</button>
     </view>
+
     <view class="button2"bindtap="clearAll">
         <button  class="weui-btn"  type="default" formType="submit">删除</button>
     </view>

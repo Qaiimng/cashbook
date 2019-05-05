@@ -30,10 +30,15 @@
         <view class="del" catchtap="del" data-index="{{index}}">删除</view>
       </view>
     </view>
+
+    <!--授权button-->
+    <button open-type="getUserInfo">授权</button>
+
     <view class="button2" bindtap="showModal1">
       <!-- <image class="float-action2" src="../common/icon/add.png"></image> -->
       <button class="weui_btn"  type="primary" formType="submit"  >添加</button>
     </view>
+    
     <view class="button1">
        <navigator url="../settings/settings" hover-class="navigator-hover"> 
       <button class="weui-btn" url="../settings/settings"formType="reset" >设置</button>
