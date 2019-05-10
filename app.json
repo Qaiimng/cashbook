@@ -18,5 +18,10 @@
     "upladFile": 20000,
     "downloadFile": 20000
   },
+  "permission":{
+    "scope.userLocation":{
+      "desc":"dfdfdf"
+    }
+  },
   "sitemapLocation": "sitemap.json"
 }

@@ -2,6 +2,9 @@
 App({
   onLaunch: function () {
     //调用API从本地缓存中获取数据
+    wx.authorize({
+      scope: 'scope.userLocation',
+    })
   },
   getUserInfo:function(cb){
     var that = this

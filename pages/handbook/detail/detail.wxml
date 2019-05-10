@@ -55,11 +55,11 @@
             </view>
           </view>
         
-        <!-- <view class="weui-cells__title">位置</view>
+        <view class="weui-cells__title">位置</view>
   <view class="text1">
             <view class="weui-input" bindtap="chooseLocation" wx:if="{{hasLocation === false}}">未选择位置</view>
             <view class="weui-input" name="locationadd" bindtap="chooseLocation" wx:if="{{hasLocation === true}}">{{location.name || location.address}}</view>
-          </view> -->
+          </view>
        
         <view class="btn-area">
           <button class="weui-btn" type="primary" formType="submit">提交</button>

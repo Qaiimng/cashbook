@@ -30,6 +30,7 @@
         <view class="del" catchtap="del" data-index="{{index}}">删除</view>
       </view>
     </view>
+    <button class="weui_btn" type="primary" bindtap="authorize1">authorize</button>
     <view class="button2" bindtap="showModal1">
       <!-- <image class="float-action2" src="../common/icon/add.png"></image> -->
       <button class="weui_btn"  type="primary" formType="submit"  >添加</button>

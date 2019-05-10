@@ -44,6 +44,22 @@ onLoad: function () {
       modalHidden1: !this.data.modalHidden1
     })
   },
+  //授权
+  authorize1: function (e){
+    wx.getSetting({
+      success(res){
+        console.log(res.authSetting)
+      }
+    })
+    wx.authorize({
+      scope: 'scope.userLocation',
+    })
+    wx.openSetting({
+      success(res){
+        console.log(res.authSetting)
+      }
+    })
+  },
   modalBindaconfirm1: function (e) {
     var templist = this.data.list
     templist.push({
