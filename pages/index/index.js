@@ -51,9 +51,6 @@ onLoad: function () {
         console.log(res.authSetting)
       }
     })
-    wx.authorize({
-      scope: 'scope.userLocation',
-    })
     wx.openSetting({
       success(res){
         console.log(res.authSetting)
