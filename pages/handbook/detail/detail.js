@@ -7,7 +7,7 @@ var list = []
 
 Page({
   data: {
-    act: 'new',
+    act: 'pay',
     isfocus: true,
     numberarray: app.globalData.numberarray,
     numberindex: 0,
@@ -37,10 +37,10 @@ Page({
         typearray.push(typelist[i].name)
       }
     }
-    if (params.act === 'new') {
+    if (params.act === 'pay') {
       var curdate = curDate(new Date())
       this.setData({
-        act: 'new',
+        act: 'pay',
         isfocus: true,
         mainindex: params.mainindex,
         typearray: typearray,
@@ -133,7 +133,7 @@ Page({
   },
   formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
-    if (this.data.act === 'new') {
+    if (this.data.act === 'pay') {
       list[this.data.mainindex].items.push(
         {
           subtitle: e.detail.value.title,
@@ -191,10 +191,10 @@ Page({
     // this.setData({
     //   hasLocation: false
     // })
-    if (this.data.act === 'new') {
+    if (this.data.act === 'pay') {
       var curdate = curDate(new Date())
       this.setData({
-        act: 'new',
+        act: 'pay',
         date: curdate[0],
         time: curdate[1]
       })

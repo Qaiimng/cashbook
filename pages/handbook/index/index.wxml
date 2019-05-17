@@ -3,7 +3,7 @@
 <import src="../../common/foot.wxml" />
 <view class="container">
   <view class="page-head">
-    <view class="page-head-desc">总花费{{ sum }}元，个人花费{{persum}}元。
+    <view class="page-head-desc">总花费{{ sumpay }}元，个人花费{{persumpay}}元。
     </view>
   </view>
   <view class="page-body">
@@ -23,13 +23,17 @@
         </view>
       </view>
     </view>
-    <view>
-      <navigator class="button2"url="../detail/detail?mainindex={{mainindex}}&act=new" hover-class="navigator-hover">
-        <button class="weui-btn"  formType="submit">添加</button>
-      </navigator>
-      <!-- <navigator url="../detail/detail?mainindex={{mainindex}}&act=new" hover-class="navigator-hover">
-        <image class="float-action2" src="../../common/icon/add.png"></image>
-      </navigator> -->
+    <view style="display:flex;flex-direction:row">
+      <view style='flex:1'>
+        <navigator class="button2"url="../detail/detail?mainindex={{mainindex}}&act=pay" >
+          <button class="weui-btn"  formType="submit">消费</button>
+        </navigator>
+      </view>
+      <view style='flex:1'>
+        <navigator class="button2"url="../detail/detail?mainindex={{mainindex}}&act=get" >
+          <button class="weui-btn"  formType="submit">收入</button>
+        </navigator>
+      </view>
     </view>
   </view>
   <template is="foot" />

@@ -12,7 +12,7 @@
           </view>
         <!-- </view> -->
 <!-- </view> -->
-        <view class="weui-cells__title">消费类型(当前选择)</view>
+        <view class="weui-cells__title">账目类型(当前选择)</view>
         <view clss="text1">
             <!-- <view class="weui-label">当前选择</view> -->
             <view class="weui-cell__bd">
@@ -27,7 +27,7 @@
             <textarea name="detail"  auto-height value='{{comment}}' ></textarea>
         </view>
 
-        <view class="weui-cells__title">花费费用（元）</view>
+        <view class="weui-cells__title">交易数额（元）</view>
         <view class="text1">
             <input name="cost" class="weui-input" type="digit" placeholder="0" value='{{cost}}' />
          

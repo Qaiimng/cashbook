@@ -6,8 +6,12 @@ Page({
     mainindex: '',
     typearray: app.globalData.typearray,
     title: '',
-    sum: 0,
-    persum: 0,
+    sumpay: 0,
+    persumpay: 0,
+    sumget:0,
+    persumget:0,
+    sumnet:0,
+    sumpernet:0,
     sublist: []
   },
   onLoad: function (params) {
@@ -27,15 +31,21 @@ Page({
     // 生命周期函数--监听页面显示
     rawlist = wx.getStorageSync('cashflow') || []
     var sublist = rawlist[this.data.mainindex].items
-    var sum = 0
-    var persum = 0
+    var sumpay = 0
+    var persumpay = 0
+    var sumget=0
+    var persumget = 0
+    var sumnet = 0
+    var sumpernet = 0
+
+
     for (var i = 0; i < sublist.length; i++) {
-      sum += parseFloat(sublist[i].cost)
-      persum += parseFloat(sublist[i].cost) / sublist[i].member
+      sumpay += parseFloat(sublist[i].cost)
+      persumpay += parseFloat(sublist[i].cost) / sublist[i].member
     }
     this.setData({
-      sum: sum.toFixed(2),
-      persum: persum.toFixed(2),
+      sumpay: sumpay.toFixed(2),
+      persumpay: persumpay.toFixed(2),
       sublist: sublist
     })
   },
