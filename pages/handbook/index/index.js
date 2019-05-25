@@ -40,12 +40,23 @@ Page({
 
 
     for (var i = 0; i < sublist.length; i++) {
-      sumpay += parseFloat(sublist[i].cost)
-      persumpay += parseFloat(sublist[i].cost) / sublist[i].member
+      if (sublist[i].typo === 'pay'){
+        sumpay += parseFloat(sublist[i].cost)
+        persumpay += parseFloat(sublist[i].cost) / sublist[i].member
+        continue
+      }
+      if (sublist[i].typo === 'get') {
+        sumget += parseFloat(sublist[i].cost)
+        persumget += parseFloat(sublist[i].cost) / sublist[i].member
+        continue
+      }
+      
     }
     this.setData({
       sumpay: sumpay.toFixed(2),
       persumpay: persumpay.toFixed(2),
+      sumget: sumget.toFixed(2),
+      persumget: persumget.toFixed(2),
       sublist: sublist
     })
   },

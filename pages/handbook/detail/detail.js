@@ -8,6 +8,7 @@ var list = []
 Page({
   data: {
     act: 'pay',
+    typo: 'pay',
     isfocus: true,
     numberarray: app.globalData.numberarray,
     numberindex: 0,
@@ -41,16 +42,29 @@ Page({
       var curdate = curDate(new Date())
       this.setData({
         act: 'pay',
+        typo: 'pay',
         isfocus: true,
         mainindex: params.mainindex,
         typearray: typearray,
         date: curdate[0],
         time: curdate[1]
       })
-    } else {
+    } else if (params.act === 'get') {
+      var curdate = curDate(new Date())
+      this.setData({
+        act: 'get',
+        typo: 'get',
+        isfocus: true,
+        mainindex: params.mainindex,
+        typearray: typearray,
+        date: curdate[0],
+        time: curdate[1]
+      })
+    }  else {
       var billinfo = list[params.mainindex].items[params.subindex]
       this.setData({
         act: 'edit',
+        typo: billinfo.typo,
         isfocus: false,
         mainindex: params.mainindex,
         subindex: params.subindex,
@@ -133,9 +147,10 @@ Page({
   },
   formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
-    if (this.data.act === 'pay') {
+    if (this.data.act === 'pay' || this.data.act === 'get') {
       list[this.data.mainindex].items.push(
         {
+          typo: this.data.typo,
           subtitle: e.detail.value.title,
           comment: e.detail.value.detail,
           cost: parseFloat(e.detail.value.cost || '0'),
@@ -149,6 +164,7 @@ Page({
       )
     } else {
       list[this.data.mainindex].items[this.data.subindex] = {
+        typo: this.data.typo,
         subtitle: e.detail.value.title,
         comment: e.detail.value.detail,
         cost: parseFloat(e.detail.value.cost),
@@ -191,10 +207,19 @@ Page({
     // this.setData({
     //   hasLocation: false
     // })
-    if (this.data.act === 'pay') {
+    if (this.data.act === 'pay' ) {
       var curdate = curDate(new Date())
       this.setData({
         act: 'pay',
+        typo: 'pay',
+        date: curdate[0],
+        time: curdate[1]
+      })
+    } else if (this.data.act === 'get') {
+      var curdate = curDate(new Date())
+      this.setData({
+        act: 'get',
+        typo: 'get',
         date: curdate[0],
         time: curdate[1]
       })
@@ -202,6 +227,7 @@ Page({
       var billinfo = this.data.inidata
       this.setData({
         act: 'edit',
+        typo: billinfo.typo, 
         numberindex: billinfo.member - 1,
         subtitle: billinfo.subtitle,
         comment: billinfo.comment,

@@ -20,7 +20,7 @@
   },
   "permission":{
     "scope.userLocation":{
-      "desc":"dfdfdf"
+      "desc":"用于地点确认"
     }
   },
   "sitemapLocation": "sitemap.json"
