@@ -1,0 +1,55 @@
+
+<!--handbook.wxml-->
+<import src="../../common/foot.wxml" />
+<view class="container">
+  <view class="page-head">
+    <view class="page-head-desc">总消费{{ sumpay }}元，个人消费{{persumpay}}元。总收入{{sumget}}元，个人收入{{persumget}}元。
+    </view>
+  </view>
+  <view class="page-body">
+    <view class="index-bd">
+      <view class="timeline" wx:for="{{sublist}}" wx:key="id">
+        <view class="timeline_tmicon">{{index+1}}</view>
+        <view class=" touch-main {{item.isTouchMove ? 'touch-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove">
+          <view wx:if="{{item.typo=='pay'}}" class="touch-paycontent" >
+            <navigator url="../detail/detail?mainindex={{mainindex}}&subindex={{ index }}&act=edit" class="timeline_tmlabel">
+              <view class="navigator-text1">{{typearray[item.typeindex]}}</view>
+              <view class="navigator-time">{{item.date}}</view>
+              <view  class="navigator-text2">{{item.subtitle}}：共消费 {{item.cost}}元</view>
+              <view class="navigator-text3">{{item.location.name}}</view>
+            </navigator>
+          </view>
+          <view wx:elif="{{item.typo=='get'}}" class="touch-getcontent" >
+            <navigator url="../detail/detail?mainindex={{mainindex}}&subindex={{ index }}&act=edit" class="timeline_tmlabel">
+              <view class="navigator-text1">{{typegetarray[item.typeindex]}}</view>
+              <view class="navigator-time">{{item.date}}</view>
+              <view  class="navigator-text2">{{item.subtitle}}：共收入 {{item.cost}}元</view>
+              <view class="navigator-text3">{{item.location.name}}</view>
+            </navigator>
+          </view>
+          <view class="touch-hide" catchtap="del" data-index="{{index}}">删除</view>
+        </view>
+      </view>
+    </view>
+    
+    <view style="display:flex;flex-direction:row">
+      <view style='flex:1'>
+        <navigator class="button2"url="../detail/detail?mainindex={{mainindex}}&act=pay" >
+          <button class="weui-btn"  formType="submit">消费</button>
+        </navigator>
+      </view>
+      <view style='flex:1'>
+        <navigator class="button2"url="../detail/detail?mainindex={{mainindex}}&act=get" >
+          <button class="weui-btn"  formType="submit">收入</button>
+        </navigator>
+      </view>
+    </view>
+    
+  </view>
+  <view >
+        <navigator url="../statistics/statistics?mainindex={{mainindex}}"  >
+          <button class="weui-btn"  type='primary'>消费指标汇总</button>
+        </navigator>
+      </view>
+  <template is="foot" />
+</view>

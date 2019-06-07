@@ -1,0 +1,29 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/settings/settings",
+    "pages/handbook/index/index",
+    "pages/handbook/detail/detail",
+    "pages/handbook/statistics/statistics",
+    "pages/handbook/sublist/sublist"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#93DB70",
+    "navigationBarTitleText": "简易记账本",
+    "navigationBarTextStyle": "white"
+  },
+  "networkTimeout": {
+    "requst": 20000,
+    "cnnectSocket": 20000,
+    "upladFile": 20000,
+    "downloadFile": 20000
+  },
+  "permission":{
+    "scope.userLocation":{
+      "desc":"用于地点确认"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}
